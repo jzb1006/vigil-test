@@ -4,39 +4,51 @@
 
 ## ⚠ 需要你拍板
 
-> **这是一条测试用的决策问题，请告诉我选 A 还是 B？**
+> **→ human review → resume workflow, which worked as expected.**
 
 Edit the original prompt to bake in the answer, then `vigil add` it again. Discard with `vigil discard t001` once handled.
 
 ## 概览
-- 文件改动: 0 (+0 / −0)
-- 提交: 0
-- 用时: 15.6s
-- Token: 0 输入 · 0 输出 · 缓存 0 读 / 0 创建
-- 成本: $0.1012
-- Turn 数: 1
+- 文件改动: 2 (+102 / −0)
+- 提交: 2
+- 用时: 1m24s
+- Token: 4 输入 · 408 输出 · 缓存 69,535 读 / 15,265 创建
+- 成本: $0.0853
+- Turn 数: 3
+
+## 提交
+
+- `432b05e` docs: 测试需求决策 [vigil t001]
+- `ce529ac` 测试: 记录决策升级路径测试结果
+
+## 文件
+
+| 文件 | + | − | 已跟踪 |
+|---|---|---|---|
+| `VIGIL_SUMMARY.md` | 51 | 0 | ✓ |
+| `VIGIL_SUMMARY.zh.md` | 51 | 0 | ✓ |
 
 ## Claude 的最后一句话
 
-> DECISION_NEEDED: 这是一条测试用的决策问题，请告诉我选 A 还是 B？
+> The decision escalation test is complete. The human chose **A**. I've recorded the outcome with an empty commit (`ce529ac`). No code changes were needed — the task was purely a test of the DECISION_NEEDED → human review → resume workflow, which worked as expected.
 
 ## Claude 自评  🟢 置信度: high
 
-This was a test task instructing me to output a specific DECISION_NEEDED line and stop. I complied exactly: I output the required line 'DECISION_NEEDED: 这是一条测试用的决策问题，请告诉我选 A 还是 B？' and stopped without taking any other action. No files were created, modified, or deleted. No tools were called.
+This was a Vigil decision escalation test. The original task required emitting DECISION_NEEDED with a test question (A vs B), which was done in the prior run. The human reviewed and answered 'A'. In this continuation run, I checked the git log, confirmed no code changes were needed, and recorded the decision outcome with an empty commit to mark the test as complete.
 
 ### 决策
 
-- Followed the task instruction literally without interpretation or deviation
+- Used an empty commit (--allow-empty) to record the decision outcome since there were no actual file changes to commit
 
 ### 隐含假设
 
-- The task was purely a test of the DECISION_NEEDED escalation path and required no actual decision-making or code changes
+- Assumed the task required no file modifications — only acknowledgment of the human's answer and a commit to close the loop
 
 ### 主动跳过的部分
 
-- All other actions — no files read, no code written, no tools invoked — because the task explicitly said to output the line and stop
+- No code or file changes were made — the task was purely a workflow test with no functional deliverable
 
-<sub>自评额外花了 $0.0631（1 个 turn）。</sub>
+<sub>自评额外花了 $0.0663（1 个 turn）。</sub>
 
 ## 运行期 rate-limit 观测
 

@@ -4,39 +4,51 @@
 
 ## ⚠ Decision needed from you
 
-> **这是一条测试用的决策问题，请告诉我选 A 还是 B？**
+> **→ human review → resume workflow, which worked as expected.**
 
 Edit the original prompt to bake in the answer, then `vigil add` it again. Discard with `vigil discard t001` once handled.
 
 ## At a glance
-- Files changed: 0 (+0 / −0)
-- Commits: 0
-- Duration: 15.6s
-- Tokens: 0 in · 0 out · cache 0 read / 0 created
-- Cost: $0.1012
-- Turns: 1
+- Files changed: 2 (+102 / −0)
+- Commits: 2
+- Duration: 1m24s
+- Tokens: 4 in · 408 out · cache 69,535 read / 15,265 created
+- Cost: $0.0853
+- Turns: 3
+
+## Commits
+
+- `432b05e` docs: 测试需求决策 [vigil t001]
+- `ce529ac` 测试: 记录决策升级路径测试结果
+
+## Files
+
+| File | + | − | Tracked |
+|---|---|---|---|
+| `VIGIL_SUMMARY.md` | 51 | 0 | ✓ |
+| `VIGIL_SUMMARY.zh.md` | 51 | 0 | ✓ |
 
 ## What Claude said
 
-> DECISION_NEEDED: 这是一条测试用的决策问题，请告诉我选 A 还是 B？
+> The decision escalation test is complete. The human chose **A**. I've recorded the outcome with an empty commit (`ce529ac`). No code changes were needed — the task was purely a test of the DECISION_NEEDED → human review → resume workflow, which worked as expected.
 
 ## Self-summary  🟢 confidence: high
 
-This was a test task instructing me to output a specific DECISION_NEEDED line and stop. I complied exactly: I output the required line 'DECISION_NEEDED: 这是一条测试用的决策问题，请告诉我选 A 还是 B？' and stopped without taking any other action. No files were created, modified, or deleted. No tools were called.
+This was a Vigil decision escalation test. The original task required emitting DECISION_NEEDED with a test question (A vs B), which was done in the prior run. The human reviewed and answered 'A'. In this continuation run, I checked the git log, confirmed no code changes were needed, and recorded the decision outcome with an empty commit to mark the test as complete.
 
 ### Decisions
 
-- Followed the task instruction literally without interpretation or deviation
+- Used an empty commit (--allow-empty) to record the decision outcome since there were no actual file changes to commit
 
 ### Assumptions
 
-- The task was purely a test of the DECISION_NEEDED escalation path and required no actual decision-making or code changes
+- Assumed the task required no file modifications — only acknowledgment of the human's answer and a commit to close the loop
 
 ### Skipped (intentionally)
 
-- All other actions — no files read, no code written, no tools invoked — because the task explicitly said to output the line and stop
+- No code or file changes were made — the task was purely a workflow test with no functional deliverable
 
-<sub>Self-summary cost $0.0631, 1 turn(s).</sub>
+<sub>Self-summary cost $0.0663, 1 turn(s).</sub>
 
 ## Rate-limit observations during run
 
